@@ -1,5 +1,5 @@
 // SOLUTION ONLY FILE
-import { useEffect, useState } from 'react';
+import { useEffect, useState } from "react";
 
 const PawsRatingInput = ({ rating, disabled, onChange }) => {
   const [activeRating, setActiveRating] = useState(rating);
@@ -20,7 +20,11 @@ const PawsRatingInput = ({ rating, disabled, onChange }) => {
       props.onClick = () => onChange(number);
     }
     return (
-      <div key={number} className={activeRating >= number ? "filled" : "empty"} {...props}>
+      <div
+        key={number}
+        className={activeRating >= number ? "filled" : "empty"}
+        {...props}
+      >
         <i className="fa fa-paw"></i>
       </div>
     );
@@ -28,7 +32,7 @@ const PawsRatingInput = ({ rating, disabled, onChange }) => {
 
   return (
     <div className="rating-input">
-      {[1, 2, 3, 4, 5].map(number => pawsIcon(number))}
+      {[1, 2, 3, 4, 5].map((number) => pawsIcon(number))}
     </div>
   );
 };

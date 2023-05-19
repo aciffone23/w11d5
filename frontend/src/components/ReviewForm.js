@@ -1,7 +1,7 @@
-import { useState } from 'react';
+import { useState } from "react";
 
-import { useDispatch } from 'react-redux';
-import PawsRatingInput from './PawsRatingInput';
+import { useDispatch } from "react-redux";
+import PawsRatingInput from "./PawsRatingInput";
 
 const ReviewForm = ({ review, formType, onSubmit, closeForm }) => {
   const [rating, setRating] = useState(review.rating);
@@ -16,22 +16,17 @@ const ReviewForm = ({ review, formType, onSubmit, closeForm }) => {
     closeForm();
   };
 
-  const onChange = (e) => {
-    const number = e.target.value;
-    setRating(parseInt(number));
+  const onChange = (number) => {
+    setRating(number);
   };
 
   return (
-    <form onSubmit={handleSubmit} >
-      <PawsRatingInput
-        disabled={false}
-        onChange={onChange}
-        rating={rating}
-      />
+    <form onSubmit={handleSubmit}>
+      <PawsRatingInput disabled={false} onChange={onChange} rating={rating} />
       <input type="submit" value={formType} />
       <button onClick={closeForm}>Cancel</button>
     </form>
   );
-}
+};
 
 export default ReviewForm;
